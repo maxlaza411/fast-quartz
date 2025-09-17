@@ -10,6 +10,6 @@ public final class HeadlessEntrypoint implements DedicatedServerModInitializer {
 
   @Override
   public void onInitializeServer() {
-    LOGGER.info("Faststone headless runner initialized.");
+    LOGGER.info("Fast Quartz headless runner initialized.");
   }
 }

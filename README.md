@@ -1,11 +1,11 @@
 # fast-quartz
 
-Faststone's redstone simulation stack for Minecraft Java 1.20.1.
+Fast Quartz's redstone simulation stack for Minecraft Java 1.20.1.
 
 ## Modules
 
-- `faststone-core`: Fabric mod that boots the Faststone simulation engine (currently scaffolded).
-- `headless-runner`: Dedicated-server wrapper mod used for headless execution flows. Depends on `faststone-core`.
+- `fast-quartz-core`: Fabric mod that boots the Fast Quartz simulation engine (currently scaffolded).
+- `headless-runner`: Dedicated-server wrapper mod used for headless execution flows. Depends on `fast-quartz-core`.
 
 ## Requirements
 

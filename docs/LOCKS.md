@@ -1,4 +1,4 @@
-# Faststone Lockfile
+# Fast Quartz Lockfile
 
 This document freezes the interfaces and invariants that require explicit approval before changes. Revisions to any entry must include a migration note and a version bump of the affected artifact.
 
@@ -11,7 +11,7 @@ This document freezes the interfaces and invariants that require explicit approv
 - **Gradle:** 8.6 (via wrapper)
 
 ## 2. Mixin injection points
-- `net.minecraft.server.world.ServerWorld#tick(BooleanSupplier)` – redirect scheduled tick processing to the Faststone engine.
+- `net.minecraft.server.world.ServerWorld#tick(BooleanSupplier)` – redirect scheduled tick processing to the Fast Quartz engine.
 - `net.minecraft.server.world.ServerTickScheduler` family (`schedule`, `tick`, `runNextTicks`) – intercept and route redstone-relevant scheduled ticks into the engine.
 - Block neighbour change hooks (e.g. `Block#neighborUpdate`, `Block#scheduledTick`) – wrap vanilla recursion to enqueue deterministic engine events.
 - `PistonBlock#onSyncedBlockEvent` – shortcut into piston transaction handling.
