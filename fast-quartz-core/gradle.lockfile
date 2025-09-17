@@ -21,6 +21,7 @@ com.google.protobuf:protobuf-java:3.19.6=annotationProcessor,testAnnotationProce
 io.github.eisop:dataflow-errorprone:3.41.0-eisop1=annotationProcessor,testAnnotationProcessor
 io.github.java-diff-utils:java-diff-utils:4.12=annotationProcessor,testAnnotationProcessor
 javax.inject:javax.inject:1=annotationProcessor,testAnnotationProcessor
+it.unimi.dsi:fastutil:8.5.13=compileClasspath,testCompileClasspath,testRuntimeClasspath
 org.apiguardian:apiguardian-api:1.1.2=testCompileClasspath
 org.checkerframework:checker-qual:3.33.0=annotationProcessor,testAnnotationProcessor
 org.junit.jupiter:junit-jupiter-api:5.10.2=testCompileClasspath,testRuntimeClasspath
