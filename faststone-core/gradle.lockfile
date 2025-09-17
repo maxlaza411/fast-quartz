@@ -33,4 +33,5 @@ org.junit:junit-bom:5.10.2=testCompileClasspath,testRuntimeClasspath
 org.opentest4j:opentest4j:1.3.0=testCompileClasspath,testRuntimeClasspath
 org.pcollections:pcollections:4.0.1=annotationProcessor,testAnnotationProcessor
 org.slf4j:slf4j-api:2.0.13=compileClasspath,testCompileClasspath,testRuntimeClasspath
+org.slf4j:slf4j-simple:2.0.13=testRuntimeClasspath
 empty=
