@@ -25,5 +25,5 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
 }
 include("fabric-stubs")
-include("faststone-core")
+include("fast-quartz-core")
 include("headless-runner")

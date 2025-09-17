@@ -1,6 +1,6 @@
 package dev.fastquartz.headless;
 
-import dev.fastquartz.faststone.FaststoneMod;
+import dev.fastquartz.fastquartz.FastQuartzMod;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -20,7 +20,7 @@ public final class HeadlessServerLauncher {
   private HeadlessServerLauncher() {}
 
   public static void main(String[] args) throws Exception {
-    LOGGER.info("Faststone headless wrapper starting (mod id: {}).", FaststoneMod.MOD_ID);
+    LOGGER.info("Fast Quartz headless wrapper starting (mod id: {}).", FastQuartzMod.MOD_ID);
 
     Path runDir = Path.of("run/headless");
     Files.createDirectories(runDir);
