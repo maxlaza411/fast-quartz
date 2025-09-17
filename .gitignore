@@ -1,0 +1,16 @@
+# Gradle
+.gradle/
+build/
+**/build/
+out/
+run/
+gradle/wrapper/gradle-wrapper.jar
+# IntelliJ / Eclipse
+.idea/
+*.iml
+.project
+.classpath
+# VS Code
+.vscode/
+# Fabric Loom generated dirs
+.remapped/
