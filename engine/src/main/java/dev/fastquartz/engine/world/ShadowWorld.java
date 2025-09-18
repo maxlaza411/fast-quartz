@@ -145,7 +145,9 @@ public final class ShadowWorld {
     return new BlockPos(worldX, worldY, worldZ);
   }
 
-  private record SectionPos(int x, int y, int z) {}
+  private record SectionPos(int x, int y, int z) {
+    // Marker record for section keys.
+  }
 
   private static final class SectionChanges {
     private int[] localIndices = new int[4];
@@ -210,9 +212,13 @@ public final class ShadowWorld {
     }
   }
 
-  private record ScheduledTick(BlockPos pos, int delayTicks, int priority) {}
+  private record ScheduledTick(BlockPos pos, int delayTicks, int priority) {
+    // Record used to stage scheduled ticks during commit.
+  }
 
-  private record NeighborNotification(BlockPos pos, BlockPos source) {}
+  private record NeighborNotification(BlockPos pos, BlockPos source) {
+    // Record used to flush neighbour updates.
+  }
 
   /** Backing world interface used by the overlay. */
   public interface Delegate {
