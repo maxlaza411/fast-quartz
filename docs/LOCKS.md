@@ -9,6 +9,9 @@ This document freezes the interfaces and invariants that require explicit approv
 - **Yarn mappings:** 1.20.1+build.10 (v2)
 - **Java toolchain:** 17
 - **Gradle:** 8.6 (via wrapper)
+- **Checksum policy:** All pinned artifacts (Minecraft, Fabric Loader, Fabric API, Yarn) will be tracked
+  via Gradle's dependency verification. `gradle/verification-metadata.xml` is the canonical store for the
+  SHA-256 digests once verification is enabled; regenerate the entries whenever a pinned artifact changes.
 
 ## 2. Mixin injection points
 - `net.minecraft.server.world.ServerWorld#tick(BooleanSupplier)` – redirect scheduled tick processing to the Fast Quartz engine.
