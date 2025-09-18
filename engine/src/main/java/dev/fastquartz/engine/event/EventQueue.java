@@ -70,6 +70,21 @@ public final class EventQueue<T> {
     return scheduled.toEvent();
   }
 
+  /**
+   * Returns, but does not remove, the next event in deterministic order. The caller may
+   * subsequently invoke {@link #poll()} to consume the same event.
+   */
+  public Event<T> peek() {
+    if (!ensureReady()) {
+      return null;
+    }
+    ScheduledEvent<T> scheduled = readyQueue.peek();
+    if (scheduled == null) {
+      return null;
+    }
+    return scheduled.toEvent();
+  }
+
   private boolean ensureReady() {
     if (!readyQueue.isEmpty()) {
       return true;

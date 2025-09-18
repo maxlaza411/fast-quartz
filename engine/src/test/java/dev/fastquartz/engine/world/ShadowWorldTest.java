@@ -167,9 +167,15 @@ class ShadowWorldTest {
     }
   }
 
-  private record BlockWrite(BlockPos pos, int stateBits) {}
+  private record BlockWrite(BlockPos pos, int stateBits) {
+    // Recording helper for block writes.
+  }
 
-  private record NeighborCall(BlockPos pos, BlockPos source) {}
+  private record NeighborCall(BlockPos pos, BlockPos source) {
+    // Recording helper for neighbour notifications.
+  }
 
-  private record ScheduledTickCall(BlockPos pos, int delayTicks, int priority) {}
+  private record ScheduledTickCall(BlockPos pos, int delayTicks, int priority) {
+    // Recording helper for scheduled ticks.
+  }
 }

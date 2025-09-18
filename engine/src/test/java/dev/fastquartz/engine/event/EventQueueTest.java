@@ -106,4 +106,20 @@ class EventQueueTest {
     assertNull(queue.poll());
     assertTrue(queue.isEmpty());
   }
+
+  @Test
+  void peekReturnsNextEventWithoutRemoval() {
+    EventQueue<String> queue = new EventQueue<>();
+    EventKey key = EventKey.forBlock(2, 0, 0, 0, 0, 0, EventType.SCHEDULED);
+    queue.schedule(key, "payload");
+
+    EventQueue.Event<String> peeked = queue.peek();
+    assertEquals(key, peeked.key());
+    assertEquals("payload", peeked.payload());
+
+    EventQueue.Event<String> polled = queue.poll();
+    assertEquals(key, polled.key());
+    assertEquals("payload", polled.payload());
+    assertNull(queue.poll());
+  }
 }
