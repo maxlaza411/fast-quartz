@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "fast_quartz",
+  "version": "${version}",
+  "name": "Fast Quartz",
+  "description": "Deterministic redstone simulation engine",
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.fastquartz.mod.FastQuartzMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "1.20.1",
+    "java": ">=17"
+  }
+}

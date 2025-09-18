@@ -1,5 +1,7 @@
 import org.gradle.api.JavaVersion
 import org.gradle.api.plugins.JavaPluginExtension
+import org.gradle.api.plugins.quality.Checkstyle
+import org.gradle.api.plugins.quality.CheckstyleExtension
 import org.gradle.api.tasks.compile.JavaCompile
 import org.gradle.api.tasks.testing.Test
 
@@ -16,6 +18,7 @@ allprojects {
 subprojects {
     apply(plugin = "com.diffplug.spotless")
     apply(plugin = "net.ltgt.errorprone")
+    apply(plugin = "checkstyle")
 
     configurations.configureEach {
         if (!name.startsWith("spotless")) {
@@ -33,6 +36,13 @@ subprojects {
             withJavadocJar()
         }
 
+        extensions.configure<CheckstyleExtension> {
+            toolVersion = "10.12.5"
+            configDirectory.set(rootProject.layout.projectDirectory.dir("config/checkstyle"))
+            isIgnoreFailures = false
+            maxWarnings = 0
+        }
+
         tasks.withType<JavaCompile>().configureEach {
             options.release.set(17)
             options.compilerArgs.addAll(listOf("-Xlint:all", "-Xlint:-processing", "-Werror"))
@@ -41,6 +51,13 @@ subprojects {
 
         tasks.withType<Test>().configureEach {
             useJUnitPlatform()
+        }
+
+        tasks.withType<Checkstyle>().configureEach {
+            reports {
+                xml.required.set(false)
+                html.required.set(false)
+            }
         }
     }
 

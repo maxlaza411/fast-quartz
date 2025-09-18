@@ -4,8 +4,11 @@ Fast Quartz's redstone simulation stack for Minecraft Java 1.20.1.
 
 ## Modules
 
-- `fast-quartz-core`: Fabric mod that boots the Fast Quartz simulation engine (currently scaffolded).
-- `headless-runner`: Dedicated-server wrapper mod used for headless execution flows. Depends on `fast-quartz-core`.
+- `engine`: Pure-Java implementation of the Fast Quartz simulation engine. This is where the two-layer netlist
+  implementation will live.
+- `mod`: Fabric mod that packages the engine for use inside Minecraft. Future integration surfaces (headless runner,
+  Fabric entrypoints, etc.) will depend on this module. The module currently compiles against a tiny stub of Fabric's
+  `ModInitializer` interface so the build remains self-contained while the full integration work is staged.
 
 ## Requirements
 
@@ -14,9 +17,9 @@ Fast Quartz's redstone simulation stack for Minecraft Java 1.20.1.
 
 ## Common tasks
 
-- `./gradlew check` – runs code style (Spotless), Error Prone, and unit tests.
-- `./gradlew build` – produces remapped mod jars for each module.
-- `./gradlew :headless-runner:run` – primes the headless wrapper; place a vanilla 1.20.1 server jar under `headless-runner/run/headless/runtime/` to launch Minecraft.
+- `./gradlew check` – runs code style (Spotless + Checkstyle), Error Prone, and unit tests.
+- `./gradlew build` – assembles the engine and mod jars with sources.
+- `./gradlew :mod:jar` – builds the stubbed Fabric integration jar used for local testing.
 
 ## Locked interfaces
 
