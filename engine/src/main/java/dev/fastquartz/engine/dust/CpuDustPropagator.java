@@ -72,7 +72,8 @@ public final class CpuDustPropagator implements DustPropagator {
       Source source = DustPropagator.requireNonNull(changedSources.get(i));
       int nodeId = source.nodeId();
       if (nodeId >= nodeCount) {
-        throw new IllegalArgumentException("nodeId " + nodeId + " out of bounds (nodeCount=" + nodeCount + ")");
+        throw new IllegalArgumentException(
+            "nodeId " + nodeId + " out of bounds (nodeCount=" + nodeCount + ")");
       }
       if (!touchedSourceFlags[nodeId]) {
         touchedSourceFlags[nodeId] = true;

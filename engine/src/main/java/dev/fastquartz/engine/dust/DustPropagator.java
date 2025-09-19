@@ -21,9 +21,9 @@ public interface DustPropagator {
   /**
    * Applies the supplied source updates and settles the dust network to a fixed point.
    *
-   * <p>Each source identifies a dust node by id together with the power level emitted by
-   * components attached to that node. Implementations may aggregate additional component inputs or
-   * cached state; callers need only provide the nodes whose component-facing power changed.
+   * <p>Each source identifies a dust node by id together with the power level emitted by components
+   * attached to that node. Implementations may aggregate additional component inputs or cached
+   * state; callers need only provide the nodes whose component-facing power changed.
    *
    * @param changedSources collection of source updates (node id, level)
    * @return array of node identifiers whose resolved power level changed as a result of the settle

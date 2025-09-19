@@ -88,12 +88,7 @@ class DustCsrBuilderTest {
     BlockPos east = BlockPos.of(1, 0, 0);
     BlockPos west = BlockPos.of(-1, 0, 0);
 
-    builder
-        .addDust(center)
-        .addDust(north)
-        .addDust(south)
-        .addDust(east)
-        .addDust(west);
+    builder.addDust(center).addDust(north).addDust(south).addDust(east).addDust(west);
 
     DustPort northPort = new DustPort(20, 0);
     DustPort southPort = new DustPort(21, 0);

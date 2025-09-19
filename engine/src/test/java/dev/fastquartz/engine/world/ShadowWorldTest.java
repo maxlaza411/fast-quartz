@@ -162,6 +162,11 @@ class ShadowWorldTest {
       neighbourNotifications.add(new NeighborCall(pos, source));
     }
 
+    @Override
+    public int readContainerSignal(BlockPos pos) {
+      return 0;
+    }
+
     void prime(BlockPos pos, int stateBits) {
       states.put(pos, stateBits);
     }
