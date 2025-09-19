@@ -139,7 +139,8 @@ public final class DustCsrBuilder {
 
     Map<DustPort, Integer> portToNode = buildPortMapping(positionToNode);
 
-    return new DustCsrGraph(nodePositions, islandIds, edgeIndex, edgeTargets, edgeWeights, portToNode, positionToNode);
+    return new DustCsrGraph(
+        nodePositions, islandIds, edgeIndex, edgeTargets, edgeWeights, portToNode, positionToNode);
   }
 
   private void validateAttachmentPositions() {
@@ -263,7 +264,8 @@ public final class DustCsrBuilder {
       current = candidate;
       weight++;
       if (++steps > maxSteps) {
-        throw new IllegalStateException("Traversal exceeded dust graph bounds starting from " + start);
+        throw new IllegalStateException(
+            "Traversal exceeded dust graph bounds starting from " + start);
       }
     }
     return new Traversal(current, weight);
@@ -271,7 +273,8 @@ public final class DustCsrBuilder {
 
   private Map<DustPort, Integer> buildPortMapping(Map<BlockPos, Integer> positionToNode) {
     Map<DustPort, Integer> mapping = new LinkedHashMap<>();
-    List<Map.Entry<BlockPos, List<DustPort>>> entries = new ArrayList<>(attachmentsByPosition.entrySet());
+    List<Map.Entry<BlockPos, List<DustPort>>> entries =
+        new ArrayList<>(attachmentsByPosition.entrySet());
     entries.sort((a, b) -> POSITION_ORDER.compare(a.getKey(), b.getKey()));
     for (Map.Entry<BlockPos, List<DustPort>> entry : entries) {
       BlockPos pos = entry.getKey();
@@ -288,7 +291,9 @@ public final class DustCsrBuilder {
     return mapping;
   }
 
-  private record Traversal(BlockPos target, int weight) {}
+  private record Traversal(BlockPos target, int weight) {
+    // Record used during BFS traversal.
+  }
 
   private record EdgeCandidate(int targetNode, int weight) {
     private static final Comparator<EdgeCandidate> ORDER =

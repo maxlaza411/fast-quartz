@@ -92,6 +92,12 @@ public final class ShadowWorld {
     scheduledTicks.add(new ScheduledTick(pos, delayTicks, priority));
   }
 
+  /** Returns the cached comparator/container signal for the supplied position. */
+  public int readContainerSignal(BlockPos pos) {
+    Objects.requireNonNull(pos, "pos");
+    return delegate.readContainerSignal(pos);
+  }
+
   /** Applies all buffered mutations to the delegate in deterministic order. */
   public void commit() {
     for (Map.Entry<SectionPos, SectionChanges> entry : sectionChanges.entrySet()) {
@@ -229,5 +235,7 @@ public final class ShadowWorld {
     void scheduleTick(BlockPos pos, int delayTicks, int priority);
 
     void markNeighborChanged(BlockPos pos, BlockPos source);
+
+    int readContainerSignal(BlockPos pos);
   }
 }

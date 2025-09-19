@@ -120,5 +120,7 @@ public final class DustCsrGraph {
   }
 
   /** Lightweight view of an outgoing edge. */
-  public record Edge(int targetNode, int weight) {}
+  public record Edge(int targetNode, int weight) {
+    // Immutable edge descriptor.
+  }
 }
